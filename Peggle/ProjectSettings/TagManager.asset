@@ -10,6 +10,7 @@ TagManager:
   - wizard
   - regularPeg
   - regularPegHit
+  - SorceryPeg
   - witch
   layers:
   - Default

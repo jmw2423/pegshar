@@ -19,7 +19,7 @@ public class shoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        coll.sharedMaterial.bounciness-= 0.0002f;
+        coll.sharedMaterial.bounciness -= 0.0002f;
         if (ball.transform.position.y < -6)
         {
             coll.sharedMaterial.bounciness = 0.9f;
@@ -44,12 +44,33 @@ public class shoot : MonoBehaviour
         }
         if(collision.tag == "wizard" || collision.tag == "regularPeg")
         {
-            coll.sharedMaterial.bounciness += 0.1f;
+            //coll.sharedMaterial.bounciness += 0.1f;
         }
         /*if (collision.tag == "regularPegHit")
         {
             coll.sharedMaterial.bounciness = 0.2f;
         }*/
+        if (collision.tag == "SorceryPeg")
+        {
+            //this.gameObject.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
+            StartCoroutine(Increase());
+        }
     }
+
+    private IEnumerator Increase()
+    {
+
+           
+            this.gameObject.transform.localScale += new Vector3(0.2f, 0.2f, 0.2f);
+           
+            yield return new WaitForSeconds(4f);
+            this.gameObject.transform.localScale -= new Vector3(0.2f, 0.2f, 0.2f);
+           
+           
+        
+
+    }
+
+
 
 }
