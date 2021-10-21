@@ -39,7 +39,7 @@ public class wizardry_peg : MonoBehaviour
         if(collision.tag == "Player")
         {
             //score from hitting wizard peg
-            Game_Manager.realScoreInGame += 1000;
+            Game_Manager.AddScore(1000);
             //creating array of colliders around wizard peg
             Collider2D[] hitColliders = Physics2D.OverlapCircleAll(this.transform.position, 2f);
             //for each in array
@@ -50,8 +50,8 @@ public class wizardry_peg : MonoBehaviour
                 {
                     //if it is, updating score by value of regular peg and destroying regular peg
                     //somehow it doubles(score), so I made it 150 instead of 300
-                    Game_Manager.realScoreInGame += 150;
-                    
+                    Game_Manager.AddScore(150);
+
                     Destroy(hitCollider.gameObject);
 
                 }

@@ -11,6 +11,7 @@ TagManager:
   - regularPeg
   - regularPegHit
   - SorceryPeg
+  - witch
   layers:
   - Default
   - TransparentFX

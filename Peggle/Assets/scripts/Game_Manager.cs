@@ -36,7 +36,8 @@ public class Game_Manager : MonoBehaviour
     public Button exitButton;
     public Button nextLevelButton;*/
 
-
+    //Theurgy peg hit
+    public static int theurgyRounds;
 
     // Start is called before the first frame update
     void Start()
@@ -120,4 +121,15 @@ public class Game_Manager : MonoBehaviour
     {
         Application.Quit();
     }*/
+    public static void AddScore(int score)
+    {
+        if(theurgyRounds > 0)
+        {
+            realScoreInGame += (score * 3);
+        }
+        else
+        {
+            realScoreInGame += score;
+        }
+    }
 }
