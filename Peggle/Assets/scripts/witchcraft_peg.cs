@@ -38,8 +38,8 @@ public class witchcraft_peg : MonoBehaviour
                 }
 
             }
-
-            Destroy(witchPeg);
+            Game_Manager.AddScore(1000);
+            StartCoroutine(getHit());
             //if (!activated)
             //{
             //    Debug.Log("BASED");
@@ -53,10 +53,10 @@ public class witchcraft_peg : MonoBehaviour
             //}
         }
     }
-   // IEnumerator getHit()
-   // {
-        
-        //yield return new WaitForSeconds(20f);
-        //Destroy(gameObject);
-   // }
+   IEnumerator getHit()
+   {
+        witchPeg.GetComponent<SpriteRenderer>().color = new Color(0,1,0,1);
+        yield return new WaitForSeconds(.15f);
+        Destroy(witchPeg);
+    }
 }

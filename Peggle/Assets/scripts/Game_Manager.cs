@@ -24,7 +24,8 @@ public class Game_Manager : MonoBehaviour
     GameObject[] wizardBalls;
     private int numOfWizardBalls;
     public int numOfBalls;
-    
+    //Theurgy peg hit
+    public static int theurgyRounds;
 
 
     // Start is called before the first frame update
@@ -79,4 +80,16 @@ public class Game_Manager : MonoBehaviour
             SceneManager.LoadScene(levelNameWin);
         }
     }
+    public static void AddScore(int score)
+    {
+        if(theurgyRounds > 0)
+        {
+            realScoreInGame += (score * 3);
+        }
+        else
+        {
+            realScoreInGame += score;
+        }
+    }
+
 }

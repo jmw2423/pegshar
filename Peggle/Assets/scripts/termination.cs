@@ -58,7 +58,7 @@ public class termination : MonoBehaviour
             if(active)
             {
                 //+300 score if regular peg was hit
-                Game_Manager.realScoreInGame += 300;
+                Game_Manager.AddScore(300);
                 Debug.Log("RED");
                 targetColor.color = myColor;
                 active = false;

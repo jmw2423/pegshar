@@ -26,6 +26,11 @@ public class shoot : MonoBehaviour
             Destroy(ball);
             ballsTotal.RemoveAt(ballsTotal.Count - 1);
             balls.Clear();
+            //Game_Manager.gameInPlay = false;
+            if(Game_Manager.theurgyRounds > 0)
+            {
+                Game_Manager.theurgyRounds--;
+            }
         }
 
 

@@ -11,6 +11,7 @@ public class gun : MonoBehaviour
     public Transform barrel;
     //list of peg's on the screen. Need that to make sure only one can be on the screen at a time.
     public static List<GameObject> balls = Game_Manager.balls;
+    public TrajectoryScript trajectory;
     //
     //private float theta;
 
@@ -49,11 +50,23 @@ public class gun : MonoBehaviour
             if (balls.Count == 0)
             {
                 //there are problems with addforce. I am not sure how to implement it correctly. Need rotational math
-                Instantiate(ball, barrel.position, Quaternion.identity).GetComponent<Rigidbody2D>().AddForce(new Vector3(1 * Mathf.Cos(77-turret.transform.rotation.z), -1 * Mathf.Cos(turret.transform.rotation.z), 0) * 500);
+                Instantiate(ball, barrel.position, Quaternion.identity).GetComponent<Rigidbody2D>().AddForce(new Vector3(1 * Mathf.Cos(77 -turret.transform.rotation.z), -1 * Mathf.Cos(turret.transform.rotation.z), 0) * 500);
                 //adding ball to the list since we shot one
                 balls.Add(ball);
             }
         }
+        faceMouse();
 
-        }
+    }
+    void faceMouse()
+    {
+        Vector3 mousePosition = Input.mousePosition;
+        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+
+        Vector2 direction = new Vector2(
+            mousePosition.x - transform.position.x,
+            mousePosition.y - transform.position.y);
+
+        transform.up = -direction;
+    }
 }
