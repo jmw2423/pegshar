@@ -10,6 +10,7 @@ TagManager:
   - wizard
   - regularPeg
   - regularPegHit
+  - SorceryPeg
   layers:
   - Default
   - TransparentFX

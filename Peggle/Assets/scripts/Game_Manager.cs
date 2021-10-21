@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class Game_Manager : MonoBehaviour
 {
+    //scene manager
+
+    //public static numOfScene = Ga
     public Text numOfBall;
     public Text scoreInGame;
     //score counter in the game. Takes all scores from other classes
@@ -13,9 +16,7 @@ public class Game_Manager : MonoBehaviour
     private int realNumOfBall;
     public GameObject ball;
     public GameObject wizardBall;
-    //levelnames
-    public string levelNameLose;
-    public string levelNameWin;
+
     //public static List<GameObject> numOfWizardBall = new List<GameObject>();
     //list of Player's pegs in game at the moment
     public static List<GameObject> balls = new List<GameObject>();
@@ -24,12 +25,28 @@ public class Game_Manager : MonoBehaviour
     GameObject[] wizardBalls;
     private int numOfWizardBalls;
     public int numOfBalls;
-    
+
+    //menu transition flow
+        //levelnames
+    public string levelNameLose;
+    public string levelNameWin;
+    //buttons
+    //starting menu buttons
+    /*public Button startButton;
+    public Button exitButton;
+    public Button nextLevelButton;*/
+
 
 
     // Start is called before the first frame update
     void Start()
     {
+        balls.Clear();
+        //menu transitions
+        /*startButton.onClick.AddListener(StartTheGame);
+        exitButton.onClick.AddListener(ExitTheGame);
+        nextLevelButton.onClick.AddListener(NextLevel);*/
+
         //takes current score from UI
         realScoreInGame = int.Parse(scoreInGame.text);
         //sets amount of availible balls
@@ -50,6 +67,7 @@ public class Game_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        IntermissionScreen.numOfScene = SceneManager.GetActiveScene().buildIndex;
         //updates score
         
         
@@ -69,14 +87,37 @@ public class Game_Manager : MonoBehaviour
         numOfBall.text = "" + realNumOfBall;
 
         //loads scences
+        //game over scene
         if (realNumOfBall == 0)
         {
             SceneManager.LoadScene(levelNameLose);
 
         } 
-        if(realScoreInGame >= 10000)
+        //intermission
+        if(realScoreInGame >= 1000)
         {
             SceneManager.LoadScene(levelNameWin);
         }
     }
+
+    //menu transitions
+    /*public void StartTheGame()
+    {
+        SceneManager.LoadScene("Level1");
+    }
+
+    public void NextLevel()
+    {
+        if (SceneManager.GetActiveScene().buildIndex < SceneManager.sceneCountInBuildSettings - 2)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+        }
+        
+    }
+
+    public void ExitTheGame()
+    {
+        Application.Quit();
+    }*/
 }

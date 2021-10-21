@@ -55,5 +55,13 @@ public class gun : MonoBehaviour
             }
         }
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "SorceryPeg")
+        {
+            this.gameObject.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
         }
+    }
 }
