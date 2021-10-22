@@ -3,7 +3,11 @@ guid: b082c38309ace7f47896db5ed7f57063
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - numOfBall: {instanceID: 0}
+  - scoreInGame: {instanceID: 0}
+  - ball: {instanceID: 0}
+  - wizardBall: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
