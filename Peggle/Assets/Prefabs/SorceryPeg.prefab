@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6594359535669243041}
   - component: {fileID: 734115529767659584}
   - component: {fileID: -3567946836209157467}
-  - component: {fileID: 9017460225696588889}
+  - component: {fileID: -4672217237280614178}
   m_Layer: 0
   m_Name: SorceryPeg
   m_TagString: SorceryPeg
@@ -74,8 +74,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: 5658939cdf4c6384e98854cc8ff6af23, type: 3}
-  m_Color: {r: 0.8113208, g: 0.4368018, b: 0.026023442, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 254d616c67771024eb85838a5b4184ae, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -117,7 +117,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.49999997
---- !u!114 &9017460225696588889
+--- !u!114 &-4672217237280614178
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,4 +129,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8e5d0150a1902c4e9e78a7a140545ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ball: {fileID: 0}
+  ball: {fileID: 6852642599923480932, guid: b920c27712fb2f944a3f8eedf8b75725, type: 3}

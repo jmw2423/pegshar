@@ -90,16 +90,18 @@ public class Game_Manager : MonoBehaviour
 
         //loads scences
         //game over scene
-        if (realNumOfBall == 0)
+        if (balls.Count == 0)
         {
-            SceneManager.LoadScene(levelNameLose);
-
+            if (realNumOfBall == 0)
+            {
+                SceneManager.LoadScene(levelNameLose);
+            }
+            //intermission
+            if (realScoreInGame >= 10000)
+            {
+                SceneManager.LoadScene(levelNameWin);
+            }
         } 
-        //intermission
-        if(realScoreInGame >= 10000)
-        {
-            SceneManager.LoadScene(levelNameWin);
-        }
     }
 
     //menu transitions

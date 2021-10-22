@@ -28,29 +28,32 @@ public class gun : MonoBehaviour
         //theta = turret.transform.rotation.z;
         //turret controls(currently limitations do not work and I dont know why)
         //maybe you have an idea
-        if(Input.GetKey(KeyCode.LeftArrow))
-        {
-            /*if(turret.transform.rotation.z > -74)
-            {
-                turret.transform.Rotate(0, 0, -0.7f);
-            }*/
-            turret.transform.Rotate(0, 0, -0.7f);
+        //if(Input.GetKey(KeyCode.LeftArrow))
+        //{
+        //    /*if(turret.transform.rotation.z > -74)
+        //    {
+        //        turret.transform.Rotate(0, 0, -0.7f);
+        //    }*/
+        //    turret.transform.Rotate(0, 0, -0.7f);
 
-        }
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            if (turret.transform.rotation.z < 74)
-            {
-                turret.transform.Rotate(0, 0, 0.7f);
-            }
-        }
+        //}
+        //if (Input.GetKey(KeyCode.RightArrow))
+        //{
+        //    if (turret.transform.rotation.z < 74)
+        //    {
+        //        turret.transform.Rotate(0, 0, 0.7f);
+        //    }
+        //}
         //can shoot peg only if balls list is empty
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (balls.Count == 0)
             {
                 //there are problems with addforce. I am not sure how to implement it correctly. Need rotational math
-                Instantiate(ball, barrel.position, Quaternion.identity).GetComponent<Rigidbody2D>().AddForce(new Vector3(1 * Mathf.Cos(77 -turret.transform.rotation.z), -1 * Mathf.Cos(turret.transform.rotation.z), 0) * 500);
+
+                //Instantiate(ball, barrel.position, Quaternion.identity).GetComponent<Rigidbody2D>().AddForce(new Vector3(Mathf.Cos(turret.transform.rotation.z), -1 * Mathf.Sin(turret.transform.rotation.z), 0) * 500);
+                Instantiate(ball, barrel.position, Quaternion.identity).GetComponent<Rigidbody2D>().AddForce(turret.transform.up * 500);
+
                 //adding ball to the list since we shot one
                 balls.Add(ball);
             }

@@ -8,6 +8,9 @@ public class shoot : MonoBehaviour
     public static List<GameObject> balls = Game_Manager.balls;
     public static List<GameObject> ballsTotal = Game_Manager.ballsTotal;
     public Collider2D coll;
+
+    public AudioSource hitSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +48,8 @@ public class shoot : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        hitSound.Play();
+
         if(collision.tag == "Bucket")
         {
             Destroy(ball);
@@ -69,10 +74,10 @@ public class shoot : MonoBehaviour
     {
 
            
-            this.gameObject.transform.localScale += new Vector3(0.2f, 0.2f, 0.2f);
+            this.gameObject.transform.localScale += new Vector3(0.4f, 0.4f, 0.4f);
            
             yield return new WaitForSeconds(4f);
-            this.gameObject.transform.localScale -= new Vector3(0.2f, 0.2f, 0.2f);
+            this.gameObject.transform.localScale -= new Vector3(0.4f, 0.4f, 0.4f);
            
            
         
