@@ -54,6 +54,12 @@ public class wizardry_peg : MonoBehaviour
 
                     Destroy(hitCollider.gameObject);
 
+                    //Game_Manager.AddScore(150);
+                    //termination.active = false;
+                    ////Destroy(hitCollider.gameObject);
+                    //hitCollider.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                    //termination.disabled = true;
+
                 }
                 
             }
