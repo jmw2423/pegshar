@@ -6,6 +6,8 @@ public class Demonology : MonoBehaviour
 {
 
     public GameObject ball;
+    public GameObject summonedBall;
+    public static List<GameObject> summonedBalls = Game_Manager.summonedBalls;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,9 +24,18 @@ public class Demonology : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
-            Instantiate(ball, this.transform.position, Quaternion.identity).GetComponent<Rigidbody2D>().AddForce(new Vector3(1, 1, 0) * 100);
-            Instantiate(ball, this.transform.position, Quaternion.identity).GetComponent<Rigidbody2D>().AddForce(new Vector3(-1, 1, 0) * 100);
+            Instantiate(summonedBall, this.transform.position, Quaternion.identity).GetComponent<Rigidbody2D>().AddForce(new Vector3(1, 1, 0) * 100);
+            Instantiate(summonedBall, this.transform.position, Quaternion.identity).GetComponent<Rigidbody2D>().AddForce(new Vector3(-1, 1, 0) * 100);
+            for(int i = 0; i < 2; i++)
+            {
+                summonedBalls.Add(summonedBall);
+            }
             Destroy(this.gameObject);
         }
+    }
+    public void terminationOfDemon()
+    {
+        Destroy(this.gameObject);
+        
     }
 }

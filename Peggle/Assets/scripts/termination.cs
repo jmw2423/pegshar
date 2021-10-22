@@ -19,7 +19,8 @@ public class termination : MonoBehaviour
         targetColor = GetComponent<SpriteRenderer>();
         coll = GetComponent<Collider2D>();
         //sets startin bounciness
-        coll.sharedMaterial.bounciness = 1.1f;
+        //1.1
+        coll.sharedMaterial.bounciness = 0.9f;
         active = true;
         disabled = false;
     }
@@ -34,9 +35,12 @@ public class termination : MonoBehaviour
         {
 
             //Destroy(regularBall);
-            active = false;
+            /*active = false;
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
-            disabled = true;
+            disabled = true;*/
+            Magic1();
+            gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            Magic2();
         }
         //swappes physics. We want to have less bounce from hitted pegs
         if(targetColor.color == myColor)
@@ -53,12 +57,13 @@ public class termination : MonoBehaviour
     //changes color of ball if it was hit by player peg
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" || other.tag == "summonedPlayer")
         {
             if(active)
             {
                 //+300 score if regular peg was hit
                 Game_Manager.AddScore(300);
+                tutorialGameManager.AddScoreTutorial(300);
                 Debug.Log("RED");
                 targetColor.color = myColor;
                 active = false;
@@ -79,5 +84,17 @@ public class termination : MonoBehaviour
         active = true;
         gameObject.GetComponent<SpriteRenderer>().enabled = true;
         targetColor.color = startColor;
+    }
+    public void Magic1()
+    {
+        active = false;
+    }
+    public void Magic2()
+    {
+        disabled = true;
+    }
+    public void terminationOfTarget()
+    {
+        Destroy(regularBall);
     }
 }

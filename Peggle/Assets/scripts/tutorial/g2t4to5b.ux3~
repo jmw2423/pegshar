@@ -1,0 +1,61 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
+public class tutorialGameManager : MonoBehaviour
+{
+    public static List<GameObject> balls = Game_Manager.balls;
+    //private List<GameObject> ballsTotal;
+    private int realNumOfBalls;
+
+    public Text numOfBall;
+    public Text scoreInGame;
+
+    public GameObject ball;
+    public GameObject target;
+    private GameObject[] targets;
+    private bool stage1;
+    private bool stageIsActive;
+    // Start is called before the first frame update
+    void Start()
+    {
+        stageIsActive = false;
+        stage1 = true;
+        targets = new GameObject[5];
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        numOfBall.text = "" + realNumOfBalls;
+        if (stageIsActive == false && stage1 == true)
+        {
+            stageIsActive = true;
+            StageOne();
+            
+        }
+    }
+
+    public void StageOne()
+    {
+        realNumOfBalls = 10;
+        /*for(int i = 0; i < realNumOfBalls; i++)
+        {
+            ballsTotal.Add(ball);
+        }*/
+        numOfBall.text = "" + realNumOfBalls;
+        Instantiate(target, new Vector3(2, 1, 0), Quaternion.identity);
+        Instantiate(target, new Vector3(0, 1.5f, 0), Quaternion.identity);
+        Instantiate(target, new Vector3(1.5f, -1.5f, 0), Quaternion.identity);
+        Instantiate(target, new Vector3(3.5f, -1.2f, 0), Quaternion.identity);
+        if(ball.transform.position.y < -5)
+        {
+            Game_Manager.balls.Clear();
+            realNumOfBalls--;
+        }
+
+
+    }
+}

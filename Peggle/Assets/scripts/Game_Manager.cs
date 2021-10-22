@@ -20,6 +20,7 @@ public class Game_Manager : MonoBehaviour
     //public static List<GameObject> numOfWizardBall = new List<GameObject>();
     //list of Player's pegs in game at the moment
     public static List<GameObject> balls = new List<GameObject>();
+    public static List<GameObject> summonedBalls = new List<GameObject>();
     //list of availible pegs for player
     public static List<GameObject> ballsTotal = new List<GameObject>();
     GameObject[] wizardBalls;
@@ -95,7 +96,7 @@ public class Game_Manager : MonoBehaviour
 
         } 
         //intermission
-        if(realScoreInGame >= 1000)
+        if(realScoreInGame >= 10000)
         {
             SceneManager.LoadScene(levelNameWin);
         }

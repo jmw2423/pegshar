@@ -9,6 +9,7 @@ public class IntermissionScreen : MonoBehaviour
 
     public Button NextLevelButton;
     public Button exitButton;
+    public Button tutorialButton;
 
     public static int numOfScene;
     public static List<GameObject> balls = new List<GameObject>();
@@ -18,6 +19,7 @@ public class IntermissionScreen : MonoBehaviour
     {
         NextLevelButton.onClick.AddListener(NextLevel);
         exitButton.onClick.AddListener(ExitTheGame);
+        tutorialButton.onClick.AddListener(StartTheTutorial);
     }
 
     // Update is called once per frame
@@ -26,10 +28,15 @@ public class IntermissionScreen : MonoBehaviour
         
     }
 
+    public void StartTheTutorial()
+    {
+        SceneManager.LoadScene("Tutorial");
+    }
+
     public void NextLevel()
     {
         
-        if (numOfScene < SceneManager.sceneCountInBuildSettings - 2)
+        if (numOfScene < SceneManager.sceneCountInBuildSettings - 3)
         {
             SceneManager.LoadScene(numOfScene + 1);
             balls.Clear();
