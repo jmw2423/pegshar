@@ -5,7 +5,6 @@ using UnityEngine;
 public class shoot : MonoBehaviour
 {
     public GameObject ball;
-    private GameObject barrel;
     public static List<GameObject> balls = Game_Manager.balls;
     public static List<GameObject> ballsTotal = Game_Manager.ballsTotal;
     public Collider2D coll;
@@ -34,7 +33,16 @@ public class shoot : MonoBehaviour
             {
                 Game_Manager.theurgyRounds--;
             }
+            if (tutorialGameManager.theurgyRoundsTutorial > 0)
+            {
+                tutorialGameManager.theurgyRoundsTutorial--;
+            }
         }
+        /*if(balls.Count == 0)
+        {
+            
+        }*/
+        coll.sharedMaterial.bounciness = 0.9f;
 
 
     }
@@ -74,6 +82,12 @@ public class shoot : MonoBehaviour
            
         
 
+    }
+
+    public void terminationOfPlayer()
+    {
+        Destroy(ball);
+        balls.Clear();
     }
 
 
