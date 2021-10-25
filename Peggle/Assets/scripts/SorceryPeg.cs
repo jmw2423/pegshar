@@ -10,9 +10,7 @@ public class SorceryPeg : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        large = false;
         ball.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-
     }
 
     // Update is called once per frame
@@ -26,7 +24,6 @@ public class SorceryPeg : MonoBehaviour
         if(collision.tag == "Player" || collision.tag == "summonedPlayer")
         {
             Destroy(this.gameObject);
-            
         }
     }
    
