@@ -10,6 +10,12 @@ public class shoot : MonoBehaviour
     public Collider2D coll;
 
     public AudioSource hitSound;
+    public AudioSource sorcSound;
+    public AudioSource demonSound;
+    public AudioSource theurgySound;
+    public AudioSource witchSound;
+    public AudioSource wizardSound;
+    public AudioSource warlockSound;
 
     // Start is called before the first frame update
     void Start()
@@ -29,14 +35,6 @@ public class shoot : MonoBehaviour
             ballsTotal.RemoveAt(ballsTotal.Count - 1);
             balls.Clear();
             //Game_Manager.gameInPlay = false;
-            if(Game_Manager.theurgyRounds > 0)
-            {
-                Game_Manager.theurgyRounds--;
-            }
-            if (tutorialGameManager.theurgyRoundsTutorial > 0)
-            {
-                tutorialGameManager.theurgyRoundsTutorial--;
-            }
         }
         /*if(balls.Count == 0)
         {
@@ -48,40 +46,58 @@ public class shoot : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        hitSound.Play();
+        switch (collision.tag)
+        {
+            case "regularPeg":
+                if(collision.gameObject.GetComponent<termination>().active)
+                {
+                    hitSound.Play();
+                }
+                break;
+            case "TheurgyPeg":
+                theurgySound.Play();
+                break;
+            case "wizard":
+                wizardSound.Play();
+                break;
+            case "SorceryPeg":
+                //this.gameObject.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
+                sorcSound.Play();
+                StartCoroutine(Increase());
+                break;
+            case "witch":
+                witchSound.Play();
+                break;
+            case "DemonologyPeg":
+                demonSound.Play();
+                break;
+            case "WarlockPeg":
+                warlockSound.Play();
+                break;
+            case "Bucket":
+                Destroy(ball);
+                balls.Clear();
+                break;
+            default:
+                break;
+        }       
 
-        if(collision.tag == "Bucket")
-        {
-            Destroy(ball);
-            balls.Clear();
-        }
-        if(collision.tag == "wizard" || collision.tag == "regularPeg")
-        {
-            //coll.sharedMaterial.bounciness += 0.1f;
-        }
-        /*if (collision.tag == "regularPegHit")
-        {
-            coll.sharedMaterial.bounciness = 0.2f;
-        }*/
-        if (collision.tag == "SorceryPeg")
-        {
-            //this.gameObject.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
-            StartCoroutine(Increase());
-        }
+        //if(collision.tag == "wizard" || collision.tag == "regularPeg")
+        //{
+        //    //coll.sharedMaterial.bounciness += 0.1f;
+        //}
+        //if (collision.tag == "regularPegHit")
+        //{
+        //    coll.sharedMaterial.bounciness = 0.2f;
+        //}
     }
 
     private IEnumerator Increase()
     {
-
+        this.gameObject.transform.localScale += new Vector3(0.4f, 0.4f, 0.4f);
            
-            this.gameObject.transform.localScale += new Vector3(0.4f, 0.4f, 0.4f);
-           
-            yield return new WaitForSeconds(4f);
-            this.gameObject.transform.localScale -= new Vector3(0.4f, 0.4f, 0.4f);
-           
-           
-        
-
+        yield return new WaitForSeconds(4f);
+        this.gameObject.transform.localScale -= new Vector3(0.4f, 0.4f, 0.4f);
     }
 
     public void terminationOfPlayer()

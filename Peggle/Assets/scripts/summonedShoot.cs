@@ -25,9 +25,9 @@ public class summonedShoot : MonoBehaviour
             coll.sharedMaterial.bounciness = 0.9f;
             summonedBalls.RemoveAt(summonedBalls.Count - 1);
         }
-        if (Game_Manager.theurgyRounds > 0)
+        if (Game_Manager.theurgyMultiplier > 0)
         {
-            Game_Manager.theurgyRounds--;
+            Game_Manager.theurgyMultiplier--;
         }
     }
 

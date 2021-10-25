@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class termination : MonoBehaviour
 {
-    bool active;
+    public bool active;
     bool disabled;
     public GameObject regularBall;
     public SpriteRenderer targetColor;
@@ -63,7 +63,7 @@ public class termination : MonoBehaviour
             {
                 //+300 score if regular peg was hit
                 Game_Manager.AddScore(300);
-                tutorialGameManager.AddScoreTutorial(300);
+                tutorialGameManager.AddScore(300);
                 Debug.Log("RED");
                 targetColor.color = myColor;
                 active = false;

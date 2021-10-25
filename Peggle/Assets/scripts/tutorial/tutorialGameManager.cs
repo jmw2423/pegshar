@@ -32,7 +32,9 @@ public class tutorialGameManager : MonoBehaviour
     public GameObject sorcery;
     public GameObject theurgy;
 
-    public static int theurgyRoundsTutorial;
+    public static int tutorialTheurgyMultiplier;
+    private static int tempScore;
+    private static int currScore;
 
     public  int stageNum;
     
@@ -51,14 +53,26 @@ public class tutorialGameManager : MonoBehaviour
 
         stageIsActive = false;
         stageNum = 1;
-        
+
+        tempScore = 0;
+        currScore = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(currScore > 0)
+        {
+            if(balls.Count == 0)
+            {
+                realScoreInTutorial = currScore;
+                tutorialTheurgyMultiplier = 0;
+                tempScore = 0;
+                currScore = 0;
+            }
+            scoreInGame.text = "" + currScore;
+        }
         
-        scoreInGame.text = "" + realScoreInTutorial;
 
         realNumOfBalls = ballsTotal.Count;
         numOfBall.text = "" + realNumOfBalls;
@@ -414,7 +428,7 @@ public class tutorialGameManager : MonoBehaviour
     public void StageEight()
     {
         tips.text = "This special peg is called Theurgy peg\n" +
-            "If you will hit this peg - you will activate 3x score-multiplier for a limited time\n" +
+            "If you will hit this peg - you will activate 2x score-multiplier until your next shot\n" +
             "This will help you to score 2000pt by hitting just three stone pegs\n" +
             "Score 2000pt to finish tutorial";
         panel.GetComponent<Image>().color = new Vector4(1, 0, 0, 0.5f);
@@ -476,16 +490,16 @@ public class tutorialGameManager : MonoBehaviour
 
     }
 
-    public static void AddScoreTutorial(int score)
+    public static void AddScore(int score)
     {
-        if (theurgyRoundsTutorial > 0)
+        tempScore += score;
+        if (tutorialTheurgyMultiplier > 0)
         {
-            realScoreInTutorial += (score * 3);
+            currScore = realScoreInTutorial + (tempScore * tutorialTheurgyMultiplier);
         }
         else
         {
-            realScoreInTutorial += score;
+            currScore = realScoreInTutorial + tempScore;
         }
-        //
     }
 }

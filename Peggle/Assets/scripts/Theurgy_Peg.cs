@@ -31,8 +31,9 @@ public class Theurgy_Peg : MonoBehaviour
     IEnumerator Theurgy()
     {
         //coll.sharedMaterial.bounciness = 0.9f;
-        Game_Manager.theurgyRounds += 3;
-        tutorialGameManager.theurgyRoundsTutorial += 3;
+        Game_Manager.theurgyMultiplier += 2;
+        Game_Manager.AddScore(0);
+        tutorialGameManager.tutorialTheurgyMultiplier += 3;
         gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 1);
         yield return new WaitForSeconds(0.2f);
         Destroy(gameObject);

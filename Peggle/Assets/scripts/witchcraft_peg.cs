@@ -8,10 +8,8 @@ public class witchcraft_peg : MonoBehaviour
     // Start is called before the first frame update
     public GameObject witchPeg;
     Vector3 temp;
-    bool activated;
     void Start()
     {
-        activated = false;
     }
     void Update()
     {
