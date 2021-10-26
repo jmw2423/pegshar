@@ -43,7 +43,7 @@ public class Game_Manager : MonoBehaviour
 
     //Theurgy peg hit
     public static int theurgyMultiplier;
-
+    public static int theurgyRounds;
     public AudioSource winSound;
     public AudioSource loseSound;
 
