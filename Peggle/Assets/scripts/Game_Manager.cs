@@ -45,7 +45,7 @@ public class Game_Manager : MonoBehaviour
     public static int theurgyMultiplier;
     public static int theurgyRounds;
     public AudioSource winSound;
-    public AudioSource loseSound;
+    public AudioSource loseSound;   
 
     // Start is called before the first frame update
     void Start()
@@ -151,7 +151,7 @@ public class Game_Manager : MonoBehaviour
     public static void AddScore(int score)
     {
         tempScore += score;
-        if(theurgyMultiplier > 0)
+        if(theurgyRounds > 0)
         {
             currScore = realScoreInGame + (tempScore * theurgyMultiplier);
         }
