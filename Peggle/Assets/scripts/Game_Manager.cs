@@ -63,6 +63,7 @@ public class Game_Manager : MonoBehaviour
         tempScore = 0;
         currScore = 0;
         theurgyMultiplier = 0;
+        theurgyRounds = 0;
         //sets amount of availible balls
         for(int i = 0; i < numOfBalls; i++)
         {
