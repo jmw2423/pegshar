@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1068272011920417429}
   - component: {fileID: -452194900856834495}
   m_Layer: 0
-  m_Name: wizardry peg
+  m_Name: Warlockry
   m_TagString: wizard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: 5658939cdf4c6384e98854cc8ff6af23, type: 3}
-  m_Color: {r: 0.05795654, g: 0.8301887, b: 0.76849467, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

@@ -9,6 +9,8 @@ public class shoot : MonoBehaviour
     public static List<GameObject> balls = Game_Manager.balls;
     public static List<GameObject> ballsTotal = Game_Manager.ballsTotal;
     public Collider2D coll;
+    public TrajectoryScript trajectory;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +33,7 @@ public class shoot : MonoBehaviour
             {
                 Game_Manager.theurgyRounds--;
             }
+            trajectory.Show();
         }
 
 
