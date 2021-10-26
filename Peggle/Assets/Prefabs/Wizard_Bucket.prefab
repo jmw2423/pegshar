@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2852725083253393464
+--- !u!1 &4207426121943377785
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,44 +8,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1922277627663560777}
-  - component: {fileID: 4955609548429797256}
-  - component: {fileID: -4178431070315173842}
-  - component: {fileID: 1068272011920417429}
-  - component: {fileID: -452194900856834495}
+  - component: {fileID: 315483085998164369}
+  - component: {fileID: 6766988846991835627}
+  - component: {fileID: 6127482092862895950}
+  - component: {fileID: 4373351442351089747}
   m_Layer: 0
-  m_Name: Warlockry
-  m_TagString: wizard
+  m_Name: Wizard_Bucket
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1922277627663560777
+--- !u!4 &315483085998164369
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2852725083253393464}
+  m_GameObject: {fileID: 4207426121943377785}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-<<<<<<< HEAD:Peggle/Assets/Prefabs/Theurgy(old).prefab
-  m_LocalPosition: {x: 0.6588195, y: -2.023417, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
-=======
-  m_LocalPosition: {x: 4.61312, y: -0.9855372, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
->>>>>>> ReeseBranchPegshar:Peggle/Assets/Prefabs/Warlockry.prefab
+  m_LocalPosition: {x: 2.1224, y: -5.9, z: 0}
+  m_LocalScale: {x: 27.870209, y: 1.1802, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &4955609548429797256
+--- !u!212 &6766988846991835627
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2852725083253393464}
+  m_GameObject: {fileID: 4207426121943377785}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -79,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: 5658939cdf4c6384e98854cc8ff6af23, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: db750325989564987a34393247d883b4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -90,49 +84,55 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-4178431070315173842
-MonoBehaviour:
+--- !u!61 &6127482092862895950
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2852725083253393464}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b03a162d69ded4041bd7d807f180a8e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wizardBall: {fileID: 2852725083253393464}
-  wizardBallColor: {fileID: 0}
---- !u!58 &1068272011920417429
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2852725083253393464}
+  m_GameObject: {fileID: 4207426121943377785}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5250ad087a189464889b1b88285fc6c2, type: 2}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.51
---- !u!58 &-452194900856834495
-CircleCollider2D:
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!61 &4373351442351089747
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2852725083253393464}
+  m_GameObject: {fileID: 4207426121943377785}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5250ad087a189464889b1b88285fc6c2, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.49999997
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0

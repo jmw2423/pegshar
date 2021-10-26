@@ -16,6 +16,7 @@ public class shoot : MonoBehaviour
     public AudioSource witchSound;
     public AudioSource wizardSound;
     public AudioSource warlockSound;
+    public TrajectoryScript trajectory;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +36,11 @@ public class shoot : MonoBehaviour
             ballsTotal.RemoveAt(ballsTotal.Count - 1);
             balls.Clear();
             //Game_Manager.gameInPlay = false;
+            if(Game_Manager.theurgyRounds > 0)
+            {
+                Game_Manager.theurgyRounds--;
+            }
+            trajectory.Show();
         }
         /*if(balls.Count == 0)
         {

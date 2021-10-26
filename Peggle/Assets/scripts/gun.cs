@@ -15,6 +15,7 @@ public class gun : MonoBehaviour
 
     public AudioSource shootSound;
 
+    Vector3 ballForce;
     //
     //private float theta;
 
@@ -27,7 +28,7 @@ public class gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        ballForce = new Vector3(1 * Mathf.Cos(77 - turret.transform.rotation.z) * 2, -1 * Mathf.Cos(turret.transform.rotation.z), 0) * 500;
         //theta = turret.transform.rotation.z;
         //turret controls(currently limitations do not work and I dont know why)
         //maybe you have an idea
@@ -54,16 +55,17 @@ public class gun : MonoBehaviour
             {
                 shootSound.Play();
                 //there are problems with addforce. I am not sure how to implement it correctly. Need rotational math
-
-                //Instantiate(ball, barrel.position, Quaternion.identity).GetComponent<Rigidbody2D>().AddForce(new Vector3(Mathf.Cos(turret.transform.rotation.z), -1 * Mathf.Sin(turret.transform.rotation.z), 0) * 500);
-                Instantiate(ball, barrel.position, Quaternion.identity).GetComponent<Rigidbody2D>().AddForce(turret.transform.up * -500);
-
+                Instantiate(ball, barrel.position, Quaternion.identity).GetComponent<Rigidbody2D>().AddForce(ballForce);
                 //adding ball to the list since we shot one
                 balls.Add(ball);
+                //trajectory.Hide();
             }
         }
         faceMouse();
-
+        if(balls.Count == 0)
+        {
+            trajectory.Show();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -92,9 +94,11 @@ public class gun : MonoBehaviour
         mousePosition.x - transform.position.x,
         mousePosition.y - transform.position.y);
 
+        
         transform.up = -direction;
-
-
-
+        //Vector3 g = new Vector3(0.0f, 9.8f, 0.0f);
+        //Vector3 newBallForce = (ballForce * g);
+        ballForce.y -= 9.8f;
+        trajectory.UpdateDots(barrel.transform.position, ballForce/100);
     }
 }
