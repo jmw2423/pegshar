@@ -34,7 +34,7 @@ public class tutorialGameManager : MonoBehaviour
 
     public static int theurgyRoundsTutorial;
 
-    public  int stageNum;
+    public static int stageNum;
     
     private bool stageIsActive;
     // Start is called before the first frame update

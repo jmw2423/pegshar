@@ -21,7 +21,7 @@ public class shoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        coll.sharedMaterial.bounciness -= 0.0002f;
+        //coll.sharedMaterial.bounciness -= 0.0002f;
         if (ball.transform.position.y < -6)
         {
             coll.sharedMaterial.bounciness = 0.9f;
@@ -29,9 +29,9 @@ public class shoot : MonoBehaviour
             ballsTotal.RemoveAt(ballsTotal.Count - 1);
             balls.Clear();
             //Game_Manager.gameInPlay = false;
-            if(Game_Manager.theurgyRounds > 0)
+            if(Game_Manager.theurgyMultiplier > 0)
             {
-                Game_Manager.theurgyRounds--;
+                Game_Manager.theurgyMultiplier--;
             }
             if (tutorialGameManager.theurgyRoundsTutorial > 0)
             {
@@ -72,6 +72,7 @@ public class shoot : MonoBehaviour
 
     private IEnumerator Increase()
     {
+<<<<<<< Updated upstream
 
            
             this.gameObject.transform.localScale += new Vector3(0.4f, 0.4f, 0.4f);
@@ -82,6 +83,12 @@ public class shoot : MonoBehaviour
            
         
 
+=======
+        this.gameObject.transform.localScale += new Vector3(0.2f, 0.2f, 0.2f);
+           
+        yield return new WaitForSeconds(4f);
+        this.gameObject.transform.localScale -= new Vector3(0.2f, 0.2f, 0.2f);
+>>>>>>> Stashed changes
     }
 
     public void terminationOfPlayer()
