@@ -22,7 +22,7 @@ public class Demonology : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if(collision.tag == "Player" || collision.tag == "summonedPlayer")
         {
             Instantiate(summonedBall, this.transform.position, Quaternion.identity).GetComponent<Rigidbody2D>().AddForce(new Vector3(1, 1, 0) * 100);
             Instantiate(summonedBall, this.transform.position, Quaternion.identity).GetComponent<Rigidbody2D>().AddForce(new Vector3(-1, 1, 0) * 100);
@@ -30,6 +30,8 @@ public class Demonology : MonoBehaviour
             {
                 summonedBalls.Add(summonedBall);
             }
+            Game_Manager.AddScore(500);
+            tutorialGameManager.AddScore(500);
             Destroy(this.gameObject);
         }
     }
