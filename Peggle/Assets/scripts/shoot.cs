@@ -17,16 +17,39 @@ public class shoot : MonoBehaviour
     public AudioSource wizardSound;
     public AudioSource warlockSound;
 
+    private float stuckTime;
+    private Vector3 lastPos;
+
     // Start is called before the first frame update
     void Start()
     {
+        stuckTime = 0;
         coll = GetComponent<Collider2D>();
         coll.sharedMaterial.bounciness =0.9f;
+        lastPos = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(ball.transform.position == lastPos)
+        {
+            stuckTime += Time.deltaTime;
+        }
+        else
+        {
+            stuckTime = 0;
+        }
+
+        if(stuckTime >= 3)
+        {
+            ballsTotal.Remove(ball);
+            Destroy(ball);
+            balls.Clear();
+        }
+
+        lastPos = ball.transform.position;
+
         coll.sharedMaterial.bounciness -= 0.0002f;
         if (ball.transform.position.y < -6)
         {
@@ -36,13 +59,7 @@ public class shoot : MonoBehaviour
             balls.Clear();
             //Game_Manager.gameInPlay = false;
         }
-        /*if(balls.Count == 0)
-        {
-            
-        }*/
         coll.sharedMaterial.bounciness = 0.9f;
-
-
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

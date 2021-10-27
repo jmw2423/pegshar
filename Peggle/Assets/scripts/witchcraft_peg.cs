@@ -36,7 +36,7 @@ public class witchcraft_peg : MonoBehaviour
                 }
 
             }
-            Game_Manager.AddScore(1000);
+            Game_Manager.AddScore(500);
             StartCoroutine(getHit());
             //if (!activated)
             //{

@@ -9,6 +9,7 @@ public class termination : MonoBehaviour
     public GameObject regularBall;
     public SpriteRenderer targetColor;
     public static List<GameObject> balls = Game_Manager.balls;
+    public static List<GameObject> summonedBalls = Game_Manager.summonedBalls;
     Color myColor = new Color(1, 0, 0, 1);
     Color startColor = new Color(1, 1, 0, 1);
     public Collider2D coll;
@@ -31,7 +32,7 @@ public class termination : MonoBehaviour
         //realScore = Game_Manager.realScoreInGame;
         //destroying them and those only when the are no player's peg on screen(between shots)
         //and which color is red
-        if (balls.Count == 0 && targetColor.color == myColor)
+        if (balls.Count == 0 && summonedBalls.Count == 0 && targetColor.color == myColor)
         {
 
             //Destroy(regularBall);

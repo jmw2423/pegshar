@@ -23,6 +23,8 @@ public class SorceryPeg : MonoBehaviour
     {
         if(collision.tag == "Player" || collision.tag == "summonedPlayer")
         {
+            Game_Manager.AddScore(500);
+            tutorialGameManager.AddScore(500);
             Destroy(this.gameObject);
         }
     }
