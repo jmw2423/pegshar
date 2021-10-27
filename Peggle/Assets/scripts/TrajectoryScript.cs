@@ -4,77 +4,130 @@ using UnityEngine;
 
 public class TrajectoryScript : MonoBehaviour
 {
-    public LineRenderer line;
-    public int resolution;
+    [SerializeField] int dotsNumber;
+    [SerializeField] GameObject dotsParents;
+    [SerializeField] GameObject dotPrefab;
+    [SerializeField] float dotSpacing;
 
-    public Vector2 velocity;
-    public float yLimit;
-    public float g;
+    Vector2 pos;
 
-    public int lineCastResolution;
-    public LayerMask canHit;
+    Transform[] dotsList;
 
-    private IEnumerator RenderArc()
+    float timeStamp;
+
+    private void Start()
     {
-        line.positionCount = resolution + 1;
-        line.SetPositions(CalculateLineArray());
-        yield return null;
+        //Hide();
+        PrepareDots();
     }
-    private Vector3[] CalculateLineArray()
+
+    void PrepareDots()
     {
-        Vector3[] lineArray = new Vector3[resolution + 1];
+        dotsList = new Transform[dotsNumber];
 
-        float lowestTimeValue = MaxTimeY() / resolution;
-
-        for(int x = 0; x < lineArray.Length; x++)
+        for(int x = 0; x < dotsNumber; x++)
         {
-            float t = x / (float)lineArray.Length;
-            lineArray[x] = CalculateLinePoint(t);
+            dotsList[x] = Instantiate(dotPrefab, null).transform;
+            dotsList[x].parent = dotsParents.transform;
         }
-
-        return lineArray;
     }
 
-    private Vector3 CalculateLinePoint(float t)
+    public void Show()
     {
-        float x = velocity.x * t;
-        float y = velocity.y * t - (g * Mathf.Pow(t, 2) / 2);
-        return new Vector3(x + transform.position.x, y + transform.position.y);
+        dotsParents.SetActive(true);
     }
 
-    private float MaxTimeY()
+    public void UpdateDots(Vector3 ballPos, Vector2 forceApplied)
     {
-        float v = velocity.y;
-        float vv = v * v;
-
-        float t = (v + Mathf.Sqrt(vv + 2 * g * (transform.position.y - yLimit))) / g;
-        return t;
-    }
-
-    private Vector2 HitPosition()
-    {
-        float lowestTimeValue = MaxTimeY() / lineCastResolution;
-
-        for (int x = 0; x < lineCastResolution; x++)
-        {
-            float t = lowestTimeValue * x;
-            float tt = lowestTimeValue * (x + 1);
-
-            RaycastHit2D hit = Physics2D.Linecast(CalculateLinePoint(t), CalculateLinePoint(tt), canHit);
-
-            if (hit)
-            {
-                return hit.point;
-            }
+        timeStamp = dotSpacing;
+        for(int x = 0; x < dotsNumber; x++)
+        { 
+            pos.x = (ballPos.x + forceApplied.x * timeStamp);
+            pos.y = (ballPos.y + forceApplied.y * timeStamp) - (Physics2D.gravity.magnitude * timeStamp * timeStamp) / 9f;
+            // Debug.Log(Physics2D.gravity.magnitude * timeStamp * timeStamp);
+            dotsList[x].position = pos;
+            timeStamp += dotSpacing;
         }
-        return CalculateLinePoint(MaxTimeY());
     }
-    private float MaxTimeX()
+
+    public void Hide()
     {
-        float x = velocity.x;
-        float t = (HitPosition().x - transform.position.x) / x;
-        return t;
+        dotsParents.SetActive(false);
     }
+    //public LineRenderer line;
+    //public int resolution;
+
+    //public Vector2 velocity;
+    //public float yLimit;
+    //public float g;
+
+    //public int lineCastResolution;
+    //public LayerMask canHit;
+
+    //private IEnumerator RenderArc()
+    //{
+    //    line.positionCount = resolution + 1;
+    //    line.SetPositions(CalculateLineArray());
+    //    yield return null;
+    //}
+    //private Vector3[] CalculateLineArray()
+    //{
+    //    Vector3[] lineArray = new Vector3[resolution + 1];
+
+    //    float lowestTimeValue = MaxTimeY() / resolution;
+
+    //    for(int x = 0; x < lineArray.Length; x++)
+    //    {
+    //        float t = x / (float)lineArray.Length;
+    //        lineArray[x] = CalculateLinePoint(t);
+    //    }
+
+    //    return lineArray;
+    //}
+
+    //private Vector3 CalculateLinePoint(float t)
+    //{
+    //    float x = velocity.x * t;
+    //    float y = velocity.y * t - (g * Mathf.Pow(t, 2) / 2);
+    //    return new Vector3(x + transform.position.x, y + transform.position.y);
+    //}
+
+    //private float MaxTimeY()
+    //{
+    //    float v = velocity.y;
+    //    float vv = v * v;
+
+    //    float t = (v + Mathf.Sqrt(vv + 2 * g * (transform.position.y - yLimit))) / g;
+    //    return t;
+    //}
+
+    //private Vector2 HitPosition()
+    //{
+    //    float lowestTimeValue = MaxTimeY() / lineCastResolution;
+
+    //    for (int x = 0; x < lineCastResolution; x++)
+    //    {
+    //        float t = lowestTimeValue * x;
+    //        float tt = lowestTimeValue * (x + 1);
+
+    //        RaycastHit2D hit = Physics2D.Linecast(CalculateLinePoint(t), CalculateLinePoint(tt), canHit);
+
+    //        if (hit)
+    //        {
+    //            return hit.point;
+    //        }
+    //    }
+    //    return CalculateLinePoint(MaxTimeY());
+    //}
+    //private float MaxTimeX()
+    //{
+    //    float x = velocity.x;
+    //    float t = (HitPosition().x - transform.position.x) / x;
+    //    return t;
+    //}
+
+
+
     //// Start is called before the first frame update
     //Vector2 Direction;
 
