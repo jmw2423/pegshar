@@ -9,9 +9,9 @@ public class Game_Manager : MonoBehaviour
     //scene manager
 
     //public static numOfScene = Ga
-    public Text numOfBall;
     public Text scoreInGame;
     public Text goalText;
+    public List<GameObject> uiBalls;
     //score counter in the game. Takes all scores from other classes
     private static int tempScore;
     private static int currScore;
@@ -69,7 +69,7 @@ public class Game_Manager : MonoBehaviour
         {
             ballsTotal.Add(ball);
         }
-        realNumOfBall = 5;
+        realNumOfBall = numOfBalls;
 
         /*wizardBalls = GameObject.FindGameObjectsWithTag("wizard");
         numOfWizardBalls = wizardBalls.Length;
@@ -83,8 +83,21 @@ public class Game_Manager : MonoBehaviour
     void Update()
     {
         IntermissionScreen.numOfScene = SceneManager.GetActiveScene().buildIndex;
-        //updates score
-        
+
+        int ballInd = 0;
+        //update ball count
+        foreach(GameObject ball in uiBalls)
+        {
+            if(ballInd < realNumOfBall)
+            {
+                ball.SetActive(true);
+            }
+            else
+            {
+                ball.SetActive(false);
+            }
+            ballInd++;
+        }
         
 
         //+1000p for destroying wizard ball
@@ -101,11 +114,10 @@ public class Game_Manager : MonoBehaviour
 
         //updates amount of pegs left
         realNumOfBall = ballsTotal.Count;
-        numOfBall.text = "" + realNumOfBall;
 
         //loads scences
         //game over scene
-        if (balls.Count == 0)
+        if (balls.Count == 0 && summonedBalls.Count == 0)
         {
             if (currScore > 0)
             {
