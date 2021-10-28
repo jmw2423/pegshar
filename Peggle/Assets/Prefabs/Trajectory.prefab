@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84c97c9b7fd95ec46900a97aa958676c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dotsNumber: 75
+  dotsNumber: 5
   dotsParents: {fileID: 6563493114639744867}
   dotPrefab: {fileID: 3843497632283008891, guid: 32fcb20364b720d41b8541fa97306e09, type: 3}
   dotSpacing: 0.1

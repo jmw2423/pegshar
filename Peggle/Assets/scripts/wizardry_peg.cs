@@ -44,7 +44,7 @@ public class wizardry_peg : MonoBehaviour
             foreach(var hitCollider in hitColliders)
             {
                 //check if it is regular peg
-                if(hitCollider.gameObject.tag == "regularPeg")
+                if(hitCollider.gameObject.tag == "regularPeg" && hitCollider.gameObject.GetComponent<SpriteRenderer>().enabled)
                 {
                     // Removed bonus points
 

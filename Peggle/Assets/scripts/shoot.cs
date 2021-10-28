@@ -25,7 +25,7 @@ public class shoot : MonoBehaviour
     {
         stuckTime = 0;
         coll = GetComponent<Collider2D>();
-        coll.sharedMaterial.bounciness =0.9f;
+        coll.sharedMaterial.bounciness = 0.9f;
         lastPos = transform.position;
     }
 
@@ -50,10 +50,8 @@ public class shoot : MonoBehaviour
 
         lastPos = ball.transform.position;
 
-        coll.sharedMaterial.bounciness -= 0.0002f;
         if (ball.transform.position.y < -6)
         {
-            coll.sharedMaterial.bounciness = 0.9f;
             Destroy(ball);
             ballsTotal.RemoveAt(ballsTotal.Count - 1);
             balls.Clear();
