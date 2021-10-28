@@ -25,7 +25,7 @@ public class gameOverScreen : MonoBehaviour
 
     public void StartTheGame()
     {
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("Level-1");
     }
 
     public void ExitTheGame()

@@ -42,6 +42,10 @@ public class IntermissionScreen : MonoBehaviour
             balls.Clear();
 
         }
+        else
+        {
+            SceneManager.LoadScene("EndGame");
+        }
 
     }
 
