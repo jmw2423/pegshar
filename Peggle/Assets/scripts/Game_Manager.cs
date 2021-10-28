@@ -43,9 +43,9 @@ public class Game_Manager : MonoBehaviour
 
     //Theurgy peg hit
     public static int theurgyMultiplier;
-
+    public static int theurgyRounds;
     public AudioSource winSound;
-    public AudioSource loseSound;
+    public AudioSource loseSound;   
 
     // Start is called before the first frame update
     void Start()
@@ -63,6 +63,7 @@ public class Game_Manager : MonoBehaviour
         tempScore = 0;
         currScore = 0;
         theurgyMultiplier = 0;
+        theurgyRounds = 0;
         //sets amount of availible balls
         for(int i = 0; i < numOfBalls; i++)
         {
@@ -163,7 +164,7 @@ public class Game_Manager : MonoBehaviour
     public static void AddScore(int score)
     {
         tempScore += score;
-        if(theurgyMultiplier > 0)
+        if(theurgyRounds > 0)
         {
             currScore = realScoreInGame + (tempScore * theurgyMultiplier);
         }

@@ -24,5 +24,6 @@ public class endGame : MonoBehaviour
     public void MainMenu()
     {
         SceneManager.LoadScene("StartingScreen");
+        Game_Manager.theurgyRounds = 0;
     }
 }

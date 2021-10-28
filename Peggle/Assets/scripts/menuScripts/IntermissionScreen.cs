@@ -31,6 +31,7 @@ public class IntermissionScreen : MonoBehaviour
     public void StartTheTutorial()
     {
         SceneManager.LoadScene("Tutorial");
+        Game_Manager.theurgyRounds = 0;
     }
 
     public void NextLevel()
@@ -40,6 +41,7 @@ public class IntermissionScreen : MonoBehaviour
         {
             SceneManager.LoadScene(numOfScene + 1);
             balls.Clear();
+            Game_Manager.theurgyRounds = 0;
 
         }
 
