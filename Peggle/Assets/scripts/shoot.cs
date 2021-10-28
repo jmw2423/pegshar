@@ -59,10 +59,6 @@ public class shoot : MonoBehaviour
             ballsTotal.RemoveAt(ballsTotal.Count - 1);
             balls.Clear();
             //Game_Manager.gameInPlay = false;
-            if(Game_Manager.theurgyRounds > 0)
-            {
-                Game_Manager.theurgyRounds--;
-            }
             trajectory.Show();
         }
         coll.sharedMaterial.bounciness = 0.9f;
