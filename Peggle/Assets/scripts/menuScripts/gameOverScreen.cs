@@ -25,8 +25,9 @@ public class gameOverScreen : MonoBehaviour
 
     public void StartTheGame()
     {
-        SceneManager.LoadScene("Level1");
-        Game_Manager.theurgyRounds = 0;
+
+        SceneManager.LoadScene("Level-1");
+
     }
 
     public void ExitTheGame()

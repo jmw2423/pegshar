@@ -44,6 +44,10 @@ public class IntermissionScreen : MonoBehaviour
             Game_Manager.theurgyRounds = 0;
 
         }
+        else
+        {
+            SceneManager.LoadScene("EndGame");
+        }
 
     }
 
