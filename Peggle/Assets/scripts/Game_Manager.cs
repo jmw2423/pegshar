@@ -164,7 +164,7 @@ public class Game_Manager : MonoBehaviour
     public static void AddScore(int score)
     {
         tempScore += score;
-        if(theurgyRounds > 0)
+        if(theurgyMultiplier > 0)
         {
             currScore = realScoreInGame + (tempScore * theurgyMultiplier);
         }
