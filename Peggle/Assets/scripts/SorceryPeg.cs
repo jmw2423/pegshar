@@ -28,6 +28,4 @@ public class SorceryPeg : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-   
- 
 }

@@ -25,7 +25,7 @@ public class shoot : MonoBehaviour
     {
         stuckTime = 0;
         coll = GetComponent<Collider2D>();
-        coll.sharedMaterial.bounciness = 0.9f;
+        coll.sharedMaterial.bounciness = 0.8f;
         lastPos = transform.position;
     }
 
@@ -57,7 +57,7 @@ public class shoot : MonoBehaviour
             balls.Clear();
             //Game_Manager.gameInPlay = false;
         }
-        coll.sharedMaterial.bounciness = 0.9f;
+        coll.sharedMaterial.bounciness = 0.8f;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
