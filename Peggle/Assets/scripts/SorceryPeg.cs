@@ -25,9 +25,13 @@ public class SorceryPeg : MonoBehaviour
         {
             Game_Manager.AddScore(500);
             tutorialGameManager.AddScore(500);
-            Destroy(this.gameObject);
+            StartCoroutine(Destroy());
         }
     }
-   
+   IEnumerator Destroy()
+    {
+        yield return new WaitForSeconds(0.2f);
+        Destroy(this.gameObject);
+    }
  
 }

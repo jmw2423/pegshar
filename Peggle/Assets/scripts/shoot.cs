@@ -19,11 +19,13 @@ public class shoot : MonoBehaviour
     public TrajectoryScript trajectory;
 
     private float stuckTime;
+    private bool sorceryed;
     private Vector3 lastPos;
 
     // Start is called before the first frame update
     void Start()
     {
+        sorceryed = false;
         stuckTime = 0;
         coll = GetComponent<Collider2D>();
         coll.sharedMaterial.bounciness =0.9f;
@@ -117,10 +119,15 @@ public class shoot : MonoBehaviour
 
     private IEnumerator Increase()
     {
-        this.gameObject.transform.localScale += new Vector3(0.4f, 0.4f, 0.4f);
-           
-        yield return new WaitForSeconds(4f);
-        this.gameObject.transform.localScale -= new Vector3(0.4f, 0.4f, 0.4f);
+        if(!sorceryed)
+        {
+            this.gameObject.transform.localScale += new Vector3(0.2f, 0.2f, 0.2f);
+            sorceryed = true;
+            yield return new WaitForSeconds(4f);
+            this.gameObject.transform.localScale -= new Vector3(0.2f, 0.2f, 0.2f);
+            sorceryed = false;
+        }
+        
     }
 
     public void terminationOfPlayer()
