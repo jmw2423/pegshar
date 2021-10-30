@@ -28,7 +28,9 @@ public class gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ballForce = new Vector3(1 * Mathf.Cos(77 - turret.transform.rotation.z) * 2, -1 * Mathf.Cos(turret.transform.rotation.z), 0) * 500;
+        //ballForce = new Vector3(1 * Mathf.Cos(77 - turret.transform.rotation.z) * 2, -1 * Mathf.Cos(turret.transform.rotation.z), 0) * 500;
+        ballForce = -transform.up * 500;
+
         //theta = turret.transform.rotation.z;
         //turret controls(currently limitations do not work and I dont know why)
         //maybe you have an idea

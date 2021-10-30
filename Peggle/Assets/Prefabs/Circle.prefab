@@ -129,6 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 972aa4f4bb51d754ab0d4a5b530c3ced, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 0
   regularBall: {fileID: 480684412441078199}
   targetColor: {fileID: 0}
   coll: {fileID: 9136178643579818493}

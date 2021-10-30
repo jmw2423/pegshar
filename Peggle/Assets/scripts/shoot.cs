@@ -16,7 +16,6 @@ public class shoot : MonoBehaviour
     public AudioSource witchSound;
     public AudioSource wizardSound;
     public AudioSource warlockSound;
-    public TrajectoryScript trajectory;
 
     private float stuckTime;
     private bool sorceryed;
@@ -28,7 +27,7 @@ public class shoot : MonoBehaviour
         sorceryed = false;
         stuckTime = 0;
         coll = GetComponent<Collider2D>();
-        coll.sharedMaterial.bounciness =0.9f;
+        coll.sharedMaterial.bounciness = 0.8f;
         lastPos = transform.position;
     }
 
@@ -53,21 +52,14 @@ public class shoot : MonoBehaviour
 
         lastPos = ball.transform.position;
 
-        coll.sharedMaterial.bounciness -= 0.0002f;
         if (ball.transform.position.y < -6)
         {
-            coll.sharedMaterial.bounciness = 0.9f;
             Destroy(ball);
             ballsTotal.RemoveAt(ballsTotal.Count - 1);
             balls.Clear();
             //Game_Manager.gameInPlay = false;
-            if(Game_Manager.theurgyRounds > 0)
-            {
-                Game_Manager.theurgyRounds--;
-            }
-            trajectory.Show();
         }
-        coll.sharedMaterial.bounciness = 0.9f;
+        coll.sharedMaterial.bounciness = 0.8f;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
