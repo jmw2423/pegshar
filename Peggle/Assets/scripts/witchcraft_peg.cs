@@ -20,7 +20,7 @@ public class witchcraft_peg : MonoBehaviour
         Debug.Log("TEST");
         if (other.tag == "Player" || other.tag == "summonedPlayer")
         {
-            Collider2D[] hitColliders = Physics2D.OverlapCircleAll(this.transform.position, 2f);
+            Collider2D[] hitColliders = Physics2D.OverlapCircleAll(this.transform.position, 1.5f);
             //for each in array
             foreach (var hitCollider in hitColliders)
             {

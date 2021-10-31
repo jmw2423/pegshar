@@ -83,18 +83,18 @@ public class gun : MonoBehaviour
         if(tutorialGameManager.stageNum !=5 && tutorialGameManager.stageNum != 6 && tutorialGameManager.stageNum != 7 && tutorialGameManager.stageNum != 8)
         {
            Vector3 mousePosition = Input.mousePosition;
-        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+            mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
-        Vector2 direction = new Vector2(
-        mousePosition.x - transform.position.x,
-        mousePosition.y - transform.position.y);
+            Vector2 direction = new Vector2(
+            mousePosition.x - transform.position.x,
+            mousePosition.y - transform.position.y);
 
         
-        transform.up = -direction;
-        //Vector3 g = new Vector3(0.0f, 9.8f, 0.0f);
-        //Vector3 newBallForce = (ballForce * g);
-        ballForce.y -= 9.8f;
-        trajectory.UpdateDots(barrel.transform.position, ballForce/100);
+            transform.up = -direction;
+            //Vector3 g = new Vector3(0.0f, 9.8f, 0.0f);
+            //Vector3 newBallForce = (ballForce * g);
+            ballForce.y -= 9.8f;
+            trajectory.UpdateDots(barrel.transform.position, ballForce/100);
 
         }
         else if (tutorialGameManager.stageNum == 5 || tutorialGameManager.stageNum == 6 || tutorialGameManager.stageNum == 7 || tutorialGameManager.stageNum == 8)

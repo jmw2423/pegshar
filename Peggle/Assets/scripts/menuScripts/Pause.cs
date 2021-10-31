@@ -63,7 +63,6 @@ public class Pause : MonoBehaviour
             if (gameIsPaused)
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-                SceneManager.
             }
         }
     }

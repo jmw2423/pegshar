@@ -32,7 +32,7 @@ public class StartingScreen : MonoBehaviour
 
     public void StartTheGame()
     {
-        SceneManager.LoadScene("Level-1");
+        SceneManager.LoadScene("Level-0");
     }
 
     public void ExitTheGame()

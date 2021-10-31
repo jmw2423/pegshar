@@ -320,7 +320,6 @@ public class tutorialGameManager : MonoBehaviour
         Instantiate(target, new Vector3(-6, 0, 0), Quaternion.identity);
         Instantiate(target, new Vector3(-4, -2, 0), Quaternion.identity);
         Instantiate(target, new Vector3(-7, -3f, 0), Quaternion.identity);
-        Instantiate(target, new Vector3(0.5f, -1.5f, 0), Quaternion.identity);
         Instantiate(target, new Vector3(-1f, -2.2f, 0), Quaternion.identity);
 
 
@@ -515,7 +514,7 @@ public class tutorialGameManager : MonoBehaviour
         tips.fontSize = 17;
         tips.text = "That’s where this angelic yellow peg comes in.\n" +
             " This is the Theurgy peg, and while it won’t score you" +
-            " points from hitting it, it will give a 3 times multiplier " +
+            " points from hitting it, it will give a 2 times multiplier " +
             "to any peg that the ball that hit the Theurgy peg.\n" +
             "This will allow you to advance through the stage, even" +
             " with the smaller amount of score generating pegs.\n" +
@@ -555,7 +554,7 @@ public class tutorialGameManager : MonoBehaviour
         tips.text = "This grey peg with a dagger on it is a special peg called a Wizardry peg\n" +
             "When a ball hits this peg it destroys all the nearby pegs around it" +
             ", scoring the points you would gain from hitting those pegs\n" +
-            "You also get 1000 points for hitting the Wizardry peg\n" +
+            "You also get 500 points for hitting the Wizardry peg\n" +
             "Score 2000 points to proceed";
             
         realScoreInTutorial = 0;

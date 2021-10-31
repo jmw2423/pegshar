@@ -30,7 +30,7 @@ public class summonedShoot : MonoBehaviour
             stuckTime = 0;
         }
 
-        if (stuckTime >= 3)
+        if (stuckTime >= 1.5)
         {
             Destroy(this.gameObject);
             summonedBalls.RemoveAt(summonedBalls.Count - 1);

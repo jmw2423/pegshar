@@ -11,7 +11,7 @@ public class termination : MonoBehaviour
     public static List<GameObject> balls = Game_Manager.balls;
     public static List<GameObject> summonedBalls = Game_Manager.summonedBalls;
     Color myColor = new Color(1, 0, 0, 1);
-    Color startColor = new Color(1, 1, 0, 1);
+    Color startColor = new Color(1, 1, 1, 1);
     public Collider2D coll;
     public PhysicsMaterial2D phys;
     public PhysicsMaterial2D phys2;
@@ -72,7 +72,7 @@ public class termination : MonoBehaviour
             }
             else if(disabled)
             {
-                Debug.Log("EXCUE ME");
+                Debug.Log("EXCUSE ME");
                 Physics2D.IgnoreCollision(other.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>(), true);
             }
             
@@ -83,6 +83,7 @@ public class termination : MonoBehaviour
     public void Activate()
     {
         active = true;
+        disabled = false;
         gameObject.GetComponent<SpriteRenderer>().enabled = true;
         targetColor.color = startColor;
     }
