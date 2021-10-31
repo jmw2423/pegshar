@@ -43,8 +43,8 @@ public class shoot : MonoBehaviour
 
         if(stuckTime >= 3)
         {
-            ballsTotal.Remove(ball);
             Destroy(ball);
+            ballsTotal.RemoveAt(ballsTotal.Count - 1);
             balls.Clear();
         }
 
@@ -109,10 +109,10 @@ public class shoot : MonoBehaviour
 
     private IEnumerator Increase()
     {
-        this.gameObject.transform.localScale += new Vector3(0.4f, 0.4f, 0.4f);
+        this.gameObject.transform.localScale += new Vector3(0.2f, 0.2f, 0.2f);
            
         yield return new WaitForSeconds(4f);
-        this.gameObject.transform.localScale -= new Vector3(0.4f, 0.4f, 0.4f);
+        this.gameObject.transform.localScale -= new Vector3(0.2f, 0.2f, 0.2f);
     }
 
     public void terminationOfPlayer()

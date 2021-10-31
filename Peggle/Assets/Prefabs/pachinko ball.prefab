@@ -233,7 +233,6 @@ MonoBehaviour:
   witchSound: {fileID: 4214207945509954488}
   wizardSound: {fileID: 6391467131384322757}
   warlockSound: {fileID: -8418170166185795127}
-  trajectory: {fileID: 0}
 --- !u!82 &2775174510605454093
 AudioSource:
   m_ObjectHideFlags: 0
