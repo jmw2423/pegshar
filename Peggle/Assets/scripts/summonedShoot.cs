@@ -30,7 +30,7 @@ public class summonedShoot : MonoBehaviour
             stuckTime = 0;
         }
 
-        if (stuckTime >= 3)
+        if (stuckTime >= 1.5)
         {
             Destroy(this.gameObject);
             summonedBalls.RemoveAt(summonedBalls.Count - 1);
@@ -65,10 +65,10 @@ public class summonedShoot : MonoBehaviour
     {
 
 
-        this.gameObject.transform.localScale += new Vector3(0.035f, 0.035f, 0.035f);
+        this.gameObject.transform.localScale += new Vector3(0.032f, 0.032f, 0.032f);
 
         yield return new WaitForSeconds(4f);
-        this.gameObject.transform.localScale -= new Vector3(0.035f, 0.035f, 0.035f);
+        this.gameObject.transform.localScale -= new Vector3(0.032f, 0.032f, 0.032f);
 
 
 

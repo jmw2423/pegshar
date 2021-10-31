@@ -8,6 +8,8 @@ public class Game_Manager : MonoBehaviour
 {
     //scene manager
 
+    public static string previousScene;
+
     //public static numOfScene = Ga
     public Text scoreInGame;
     public Text goalText;
@@ -43,16 +45,17 @@ public class Game_Manager : MonoBehaviour
 
     //Theurgy peg hit
     public static int theurgyMultiplier;
-    public static int theurgyRounds;
     public AudioSource winSound;
     public AudioSource loseSound;   
 
     // Start is called before the first frame update
     void Start()
     {
+        previousScene = SceneManager.GetActiveScene().name;
         goalText.text = ""+scoreToBeat;
 
         balls.Clear();
+        ballsTotal.Clear();
         //menu transitions
         /*startButton.onClick.AddListener(StartTheGame);
         exitButton.onClick.AddListener(ExitTheGame);
@@ -63,7 +66,6 @@ public class Game_Manager : MonoBehaviour
         tempScore = 0;
         currScore = 0;
         theurgyMultiplier = 0;
-        theurgyRounds = 0;
         //sets amount of availible balls
         for(int i = 0; i < numOfBalls; i++)
         {
@@ -82,6 +84,7 @@ public class Game_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
         IntermissionScreen.numOfScene = SceneManager.GetActiveScene().buildIndex;
 
         int ballInd = 0;

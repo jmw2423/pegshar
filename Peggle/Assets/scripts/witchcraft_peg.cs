@@ -20,7 +20,7 @@ public class witchcraft_peg : MonoBehaviour
         Debug.Log("TEST");
         if (other.tag == "Player" || other.tag == "summonedPlayer")
         {
-            Collider2D[] hitColliders = Physics2D.OverlapCircleAll(this.transform.position, 2f);
+            Collider2D[] hitColliders = Physics2D.OverlapCircleAll(this.transform.position, 1.5f);
             //for each in array
             foreach (var hitCollider in hitColliders)
             {
@@ -56,5 +56,11 @@ public class witchcraft_peg : MonoBehaviour
         witchPeg.GetComponent<SpriteRenderer>().color = new Color(0,1,0,1);
         yield return new WaitForSeconds(.15f);
         Destroy(witchPeg);
+    }
+
+    public void terminationOfWitch()
+    {
+        Destroy(this.gameObject);
+
     }
 }

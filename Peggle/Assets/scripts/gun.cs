@@ -74,21 +74,33 @@ public class gun : MonoBehaviour
     {
         if(collision.tag == "SorceryPeg")
         {
-            this.gameObject.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
+            this.gameObject.transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
         }
     }
     
     void faceMouse()
     {
-        /*if(tutorialGameManager.stageNum !=5 && tutorialGameManager.stageNum != 6 && tutorialGameManager.stageNum != 7 && tutorialGameManager.stageNum != 8)
+        if(tutorialGameManager.stageNum !=5 && tutorialGameManager.stageNum != 6 && tutorialGameManager.stageNum != 7 && tutorialGameManager.stageNum != 8)
         {
-           
+           Vector3 mousePosition = Input.mousePosition;
+            mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+
+            Vector2 direction = new Vector2(
+            mousePosition.x - transform.position.x,
+            mousePosition.y - transform.position.y);
+
+        
+            transform.up = -direction;
+            //Vector3 g = new Vector3(0.0f, 9.8f, 0.0f);
+            //Vector3 newBallForce = (ballForce * g);
+            ballForce.y -= 9.8f;
+            trajectory.UpdateDots(barrel.transform.position, ballForce/100);
 
         }
         else if (tutorialGameManager.stageNum == 5 || tutorialGameManager.stageNum == 6 || tutorialGameManager.stageNum == 7 || tutorialGameManager.stageNum == 8)
         {
             transform.up = new Vector3(0, 0, 0);
-        }*/
+        }
         Vector2 direction = new Vector2(0.0f, 0.0f);
         Vector3 mousePosition = Input.mousePosition;
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
@@ -107,10 +119,5 @@ public class gun : MonoBehaviour
         
 
         
-        transform.up = -direction;
-        //Vector3 g = new Vector3(0.0f, 9.8f, 0.0f);
-        //Vector3 newBallForce = (ballForce * g);
-        ballForce.y -= 9.8f;
-        trajectory.UpdateDots(barrel.transform.position, ballForce/100);
     }
 }

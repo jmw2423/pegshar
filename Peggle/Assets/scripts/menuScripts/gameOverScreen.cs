@@ -32,7 +32,6 @@ public class gameOverScreen : MonoBehaviour
 
     public void ExitTheGame()
     {
-        Game_Manager.theurgyRounds = 0;
         Application.Quit();
     }
 }

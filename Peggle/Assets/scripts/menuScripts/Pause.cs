@@ -58,6 +58,13 @@ public class Pause : MonoBehaviour
                 Application.Quit();
             }
         }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            if (gameIsPaused)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
+        }
     }
 
     public void PauseGame()
