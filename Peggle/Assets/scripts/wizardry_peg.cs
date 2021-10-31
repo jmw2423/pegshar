@@ -39,7 +39,7 @@ public class wizardry_peg : MonoBehaviour
             Game_Manager.AddScore(500);
             tutorialGameManager.AddScore(500);
             //creating array of colliders around wizard peg
-            Collider2D[] hitColliders = Physics2D.OverlapCircleAll(this.transform.position, 2f);
+            Collider2D[] hitColliders = Physics2D.OverlapCircleAll(this.transform.position, 1.5f);
             //for each in array
             foreach(var hitCollider in hitColliders)
             {

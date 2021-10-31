@@ -6,6 +6,7 @@ public class bucket_Movement : MonoBehaviour
 {
 
     public GameObject bucket;
+    public AudioSource plankSound;
     //public GameObject ball;
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,10 @@ public class bucket_Movement : MonoBehaviour
         {
             
             bucket.GetComponent<Rigidbody2D>().AddRelativeForce(new Vector3(-1, 0, 0) * 200);
+        }
+        if(collision.tag == "Player")
+        {
+            plankSound.Play();
         }
     }
 }

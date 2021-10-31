@@ -45,7 +45,6 @@ public class Game_Manager : MonoBehaviour
 
     //Theurgy peg hit
     public static int theurgyMultiplier;
-    public static int theurgyRounds;
     public AudioSource winSound;
     public AudioSource loseSound;   
 
@@ -56,6 +55,7 @@ public class Game_Manager : MonoBehaviour
         goalText.text = ""+scoreToBeat;
 
         balls.Clear();
+        ballsTotal.Clear();
         //menu transitions
         /*startButton.onClick.AddListener(StartTheGame);
         exitButton.onClick.AddListener(ExitTheGame);
@@ -66,7 +66,6 @@ public class Game_Manager : MonoBehaviour
         tempScore = 0;
         currScore = 0;
         theurgyMultiplier = 0;
-        theurgyRounds = 0;
         //sets amount of availible balls
         for(int i = 0; i < numOfBalls; i++)
         {

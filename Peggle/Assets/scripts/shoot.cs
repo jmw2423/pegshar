@@ -43,8 +43,8 @@ public class shoot : MonoBehaviour
 
         if(stuckTime >= 3)
         {
-            ballsTotal.Remove(ball);
             Destroy(ball);
+            ballsTotal.RemoveAt(ballsTotal.Count - 1);
             balls.Clear();
         }
 
