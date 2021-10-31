@@ -50,8 +50,8 @@ public class wizardry_peg : MonoBehaviour
 
                     ////if it is, updating score by value of regular peg and destroying regular peg
                     ////somehow it doubles(score), so I made it 150 instead of 300
-                    Game_Manager.AddScore(150);
-                    tutorialGameManager.AddScore(150);
+                    Game_Manager.AddScore(300);
+                    tutorialGameManager.AddScore(300);
                     termination temp = (termination)hitCollider.GetComponent(typeof(termination));
                     temp.Magic1();
                     //Destroy(hitCollider.gameObject);
@@ -90,5 +90,11 @@ public class wizardry_peg : MonoBehaviour
 
         //updating list of balls by decreasing count
         //wizardBalls.RemoveAt(wizardBalls.Count - 1);
+    }
+
+    public void terminationOfWizard()
+    {
+        Destroy(this.gameObject);
+
     }
 }

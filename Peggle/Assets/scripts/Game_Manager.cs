@@ -8,6 +8,8 @@ public class Game_Manager : MonoBehaviour
 {
     //scene manager
 
+    public static string previousScene;
+
     //public static numOfScene = Ga
     public Text scoreInGame;
     public Text goalText;
@@ -50,6 +52,7 @@ public class Game_Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        previousScene = SceneManager.GetActiveScene().name;
         goalText.text = ""+scoreToBeat;
 
         balls.Clear();
@@ -82,6 +85,7 @@ public class Game_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
         IntermissionScreen.numOfScene = SceneManager.GetActiveScene().buildIndex;
 
         int ballInd = 0;

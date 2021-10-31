@@ -10,7 +10,7 @@ public class SorceryPeg : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ball.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+        ball.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
     }
 
     // Update is called once per frame

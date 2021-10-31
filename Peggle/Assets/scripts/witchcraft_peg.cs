@@ -57,4 +57,10 @@ public class witchcraft_peg : MonoBehaviour
         yield return new WaitForSeconds(.15f);
         Destroy(witchPeg);
     }
+
+    public void terminationOfWitch()
+    {
+        Destroy(this.gameObject);
+
+    }
 }

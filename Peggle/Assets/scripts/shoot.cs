@@ -25,7 +25,7 @@ public class shoot : MonoBehaviour
     {
         stuckTime = 0;
         coll = GetComponent<Collider2D>();
-        coll.sharedMaterial.bounciness = 0.8f;
+        coll.sharedMaterial.bounciness = 0.67f;
         lastPos = transform.position;
     }
 
@@ -57,7 +57,7 @@ public class shoot : MonoBehaviour
             balls.Clear();
             //Game_Manager.gameInPlay = false;
         }
-        coll.sharedMaterial.bounciness = 0.8f;
+        coll.sharedMaterial.bounciness = 0.67f;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -109,10 +109,10 @@ public class shoot : MonoBehaviour
 
     private IEnumerator Increase()
     {
-        this.gameObject.transform.localScale += new Vector3(0.4f, 0.4f, 0.4f);
+        this.gameObject.transform.localScale += new Vector3(0.2f, 0.2f, 0.2f);
            
         yield return new WaitForSeconds(4f);
-        this.gameObject.transform.localScale -= new Vector3(0.4f, 0.4f, 0.4f);
+        this.gameObject.transform.localScale -= new Vector3(0.2f, 0.2f, 0.2f);
     }
 
     public void terminationOfPlayer()
