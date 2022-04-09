@@ -80,12 +80,14 @@ public class gun : MonoBehaviour
     
     void faceMouse()
     {
-        if(tutorialGameManager.stageNum !=5 && tutorialGameManager.stageNum != 6 && tutorialGameManager.stageNum != 7 && tutorialGameManager.stageNum != 8)
+        Vector3 mousePosition;
+        Vector2 direction;
+        if (tutorialGameManager.stageNum !=5 && tutorialGameManager.stageNum != 6 && tutorialGameManager.stageNum != 7 && tutorialGameManager.stageNum != 8)
         {
-           Vector3 mousePosition = Input.mousePosition;
+            mousePosition = Input.mousePosition;
             mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
-            Vector2 direction = new Vector2(
+            direction = new Vector2(
             mousePosition.x - transform.position.x,
             mousePosition.y - transform.position.y);
 
@@ -101,8 +103,8 @@ public class gun : MonoBehaviour
         {
             transform.up = new Vector3(0, 0, 0);
         }
-        Vector2 direction = new Vector2(0.0f, 0.0f);
-        Vector3 mousePosition = Input.mousePosition;
+        direction = new Vector2(0.0f, 0.0f);
+        mousePosition = Input.mousePosition;
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
         if(mousePosition.y > 5.0f)
         {
@@ -116,8 +118,5 @@ public class gun : MonoBehaviour
             mousePosition.x - transform.position.x,
             mousePosition.y - transform.position.y);
         }
-        
-
-        
     }
 }

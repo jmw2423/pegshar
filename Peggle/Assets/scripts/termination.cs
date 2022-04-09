@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class termination : MonoBehaviour
 {
+    //Variables
     public bool active;
     bool disabled;
     public GameObject regularBall;
@@ -15,6 +16,7 @@ public class termination : MonoBehaviour
     public Collider2D coll;
     public PhysicsMaterial2D phys;
     public PhysicsMaterial2D phys2;
+
     void Start()
     {
         targetColor = GetComponent<SpriteRenderer>();
